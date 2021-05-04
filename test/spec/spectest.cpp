@@ -200,6 +200,9 @@ struct TestsuiteProposal {
 static const TestsuiteProposal TestsuiteProposals[] = {
     {"core"sv, {}},
     {"simd"sv, {WasmEdge::Proposal::SIMD}},
+    {"tail-call"sv,
+     {WasmEdge::Proposal::TailCall, WasmEdge::Proposal::ReferenceTypes,
+      WasmEdge::Proposal::BulkMemoryOperations}},
 };
 
 } // namespace
