@@ -58,8 +58,7 @@ void Environ::init(Span<const std::string> Dirs, std::string ProgramName,
       const auto Pos = Dir.find(':');
       if (Pos != std::string::npos) {
         const auto HostDir = Dir.substr(Pos + 1);
-        auto GuestDir =
-            VINode::canonicalGuest(std::string_view(Dir).substr(0, Pos));
+        auto GuestDir = Dir.substr(0, Pos);
         if (GuestDir.size() == 0) {
         }
         if (auto Res =
