@@ -124,6 +124,12 @@ Expect<void> Interpreter::execute(Runtime::StoreManager &StoreMgr,
     case OpCode::Call_indirect:
       return runCallIndirectOp(StoreMgr, Instr, PC);
 
+    /// Tail-call instructions
+    case OpCode::Return_call:
+      return runReturnCallOp(StoreMgr, Instr, PC);
+    case OpCode::Return_call_indirect:
+      return runReturnCallIndirectOp(StoreMgr, Instr, PC);
+
     /// Reference Instructions
     case OpCode::Ref__null:
       StackMgr.push(genNullRef(Instr.getReferenceType()));
